@@ -1,0 +1,25 @@
+<%= form_with model: @fruit, data: { turbo: false } do |f| %>
+
+<% if @fruit.errors.any? %>
+  <% @fruit.errors.full_messages.each do |message| %>
+    <p>
+      <%= message %>
+    </p>
+  <% end %>
+<% end %>
+
+<div>
+  <%= f.label :name, 'Nome da Fruta'%>
+  <%= f.text_field :name %>
+</div>
+
+<div>
+  <%= f.label :color, 'Cor da Fruta'%>
+  <%= f.text_field :color %>
+</div>
+
+<div>
+  <%= f.submit 'Salvar' %>
+</div>
+
+<% end %>

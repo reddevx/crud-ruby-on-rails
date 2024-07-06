@@ -1,0 +1,29 @@
+<p>
+<h1> Frutas </h1>
+<%= link_to 'new', new_fruit_path %>
+</p>
+<% @fruits.each do |fruit| %>
+ <p>
+  <%= link_to fruit_path(fruit) do %>
+    <h2>
+      <%= fruit.id %>
+    </h2>
+  <% end %>
+      <p>
+      Nome: 
+      <%= fruit.name %>
+      </p>
+      <p>
+      <p>
+      Cor:
+      <%= fruit.color %>
+      </p>
+      <p>
+      Criado em:
+      <%= fruit.created_at %>
+      </p>
+      <%= link_to 'Detalhes', fruit_path(fruit)%>
+      <%= link_to 'Editar', edit_fruit_path(fruit)%>
+      <%= link_to 'Excluir', fruit_path(fruit), data: {'turbo-method': :delete, 'turbo-confirm': 'Tem certeza disso?' } %>
+    </p>
+<% end %>
